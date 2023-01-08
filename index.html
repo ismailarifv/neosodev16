@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+         //ÖDEV1
+        /*
+        1-Kullanıcıdan alınan sayının karesini bulan programı yazınız.(prompt)
+        2-Prompt komutu ile 3 farklı değer alın örneğin x,y ve z daha sonra x ve y'yi çarpıp buunun sonucunun 2 ye
+        modundan kalan ile y yi toplayınız.Sonucu console'a yazdırınız.
+        3-Ekrandan 3 sayı alıp ortalamasını hesaplayan programı oluşturunuz.
+        */
+
+        // 1.Soru
+            let sayi = Number(prompt('Bir sayi giriniz'))
+            let sonuc = Math.pow(sayi,2)
+            console.log(sonuc);
+
+        //2.Soru
+            let x = Number(prompt('Bir sayı giriniz'))
+            let y = Number(prompt('Bir sayı giriniz'))
+            let z = Number(prompt('Bir sayı giriniz'))
+
+            sonuc2 = ((x*y)% 2)+z;
+            console.log(sonuc2);
+
+            // //3.Soru
+            sonuc3= (x+y+z)/3;
+            console.log(sonuc3);
+
+        /* 
+        ÖDEV2
+        1-Bir array tanımla ve bu arrayde 3 farklı user objesi tanımla bu user objelerinde isim (string), yas(number) ve
+        yetki(boolean) olsun. Bu arrayden user çek ve yetkisi olanı alert ile bildir olmayanı ise konsola yazdır.
+        2-Bu arraydeki user objelerinden yaşı 18'den küçük olanları tespit et ve alert ile :
+        "Bu siteye girmek için önce git babandan izin al" mesajını yazdır.
+        3- Prompt ile kullanıcıdan bir isim al ve eğer kullanıcın girdiği isim oluşturmuş olduğumuz arraydeki userların 
+        isimlerinden biri ile eşleşirse o useri arrayden sil ve kullanıcıya başarılı bir şekilde silinde mesajı döndür.
+        4-Kullanıcı eylemi iptal ederse ya da promptu boş bırakırsa bunları kullanıcıya bildir.
+        5-Kullanıcıdan prompt ile önce :isim sonra yaş sonra yetki girdilerini al  ve bir aksilik yoksa bu veriler doğrultusunda Arraye 
+        bu objeleri ekle. 
+
+        */
+
+        //1.Soru
+            let array =[
+                {isim:"İsmail", yas:24, yetki:true},
+                {isim:"Ethem", yas:3, yetki:false},
+                {isim:"Ahmet", yas:19, yetki:false}
+            ]
+
+            let rastgele = Math.floor(Math.random() * 3)
+            let alinan = array[rastgele]
+            console.log(alinan)
+            if(alinan.yetki == true){
+                alert('Yetkisi var bu kralin')
+            }
+            else{
+                console.log("bunun yetkisi yok")
+            }
+
+        //2.Soru
+            if (alinan.yas < 18){
+                alert('Bu siteye girmek için önce git babandan izin al')
+            }
+        //3 ve 4.Soru
+       
+        let isimAl= prompt("isminizi giriniz")  
+           
+            
+            
+            if(array[0].isim == isimAl || array[1].isim == isimAl || array[2].isim == isimAl){
+                if(array[0].isim == isimAl){
+                    array.splice(0,1)
+                }
+                else if(array[1].isim == isimAl){
+                    array.splice(1,1)
+                }
+                else{
+                    array.splice(2,1)
+                }
+                alert('Üyelik başarili bir şekilde silindi ')
+            }
+            else if([null, undefined, false,""].includes(isimAl)){
+                alert('Lütfen isim giriniz')
+            }
+            else{
+                alert('Yanliş isim girdiniz')
+            }
+        //5.Soru
+        let yeniObje= {isim:"", yas:"", yetki:""}
+        let isimGir = prompt('isim giriniz')
+        let yasGir = Number(prompt('Yasinizi giriniz'))
+        let yetkiGir = prompt('Yetki giriniz')
+
+        if(["",null,false,undefined].includes(isimGir)||["",null,false,undefined,NaN,0].includes(yasGir)||["",null,false,undefined].includes(yetkiGir)){
+           alert('Eksik veya hatalı bilgi girdiniz.')
+        }
+        else{
+            yeniObje.isim = isimGir
+            yeniObje.yas = yasGir
+            yeniObje.yetki = yetkiGir
+            array.push(yeniObje)
+            console.log(array)
+        }
+
+    </script>
+</body>
+</html>
